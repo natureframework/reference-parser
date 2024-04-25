@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+black .
+flake8 .
+pylint --jobs 0 $(find . -name '*.py')

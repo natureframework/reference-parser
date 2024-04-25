@@ -1,0 +1,11 @@
+citation = book " " chapter ":" verse
+range = number "-" number
+verse = range / number
+chapter = number
+book = word
+
+
+digit = ~"[0-9]"
+alpha = ~"[a-z]"
+number = digit+
+word = alpha+

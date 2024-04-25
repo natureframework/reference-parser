@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "citation-parser"
+version = "0.1.0"
+description = "Bible citation parser"
+authors = ["Ivan Dustin Bilon <ivan22.dust@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "citationparser" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+parsimonious = "^0.10.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
