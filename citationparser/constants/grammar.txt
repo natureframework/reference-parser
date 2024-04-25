@@ -12,5 +12,5 @@ number = digit+
 word = alpha+
 
 
-alpha = ~"[a-z]"
+alpha = ~"[a-zA-Z]"
 digit = ~"[0-9]"
