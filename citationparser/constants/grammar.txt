@@ -1,11 +1,16 @@
-citation = book " " chapter ":" verse
-range = number "-" number
-verse = range / number
+citation = book " " span
+span = (start "-" end) / start
+reference = chapter ":" verse
+end = reference / verse
+start = reference
 chapter = number
+verse = number
 book = word
 
 
-digit = ~"[0-9]"
-alpha = ~"[a-z]"
 number = digit+
 word = alpha+
+
+
+alpha = ~"[a-z]"
+digit = ~"[0-9]"
