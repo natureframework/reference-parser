@@ -7,7 +7,7 @@ from .span import Span
 class Visitor(NodeVisitor):
     def visit_citation(self, _, visited_children):
         book, _, span = visited_children
-        return Citation(book, span)
+        return Citation(book=book, start=span.start, end=span.end)
 
     def visit_span(self, _, visited_children):
         (value,) = visited_children
@@ -16,8 +16,8 @@ class Visitor(NodeVisitor):
         else:
             start, _, end = value
             if isinstance(end, int):
-                end = Reference(start.chapter, verse=end)
-        return Span(start, end)
+                end = Reference(chapter=start.chapter, verse=end)
+        return Span(start=start, end=end)
 
     def visit_end(self, _, visited_children):
         (value,) = visited_children
@@ -25,7 +25,7 @@ class Visitor(NodeVisitor):
 
     def visit_reference(self, _, visited_children):
         chapter, _, verse = visited_children
-        return Reference(chapter, verse)
+        return Reference(chapter=chapter, verse=verse)
 
     def visit_number(self, node, _):
         return int(node.text)

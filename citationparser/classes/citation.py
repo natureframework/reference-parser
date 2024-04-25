@@ -3,6 +3,5 @@ from .span import Span
 
 
 @dataclass
-class Citation:
+class Citation(Span):
     book: str
-    span: Span
