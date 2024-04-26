@@ -39,3 +39,8 @@ def test_books():
 def test_unknown_book():
     with raises(ParseError):
         parse("unknown 01:01")
+
+
+def test_zero_number():
+    with raises(ParseError):
+        parse("matthew 00:00")
