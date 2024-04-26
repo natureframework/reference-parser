@@ -1,51 +1,79 @@
 # Bible Citation Parser Library
 
-A Python library designed to parse a citation that refers to a single block of contiguous text that can span multiple chapters.
+The Bible Citation Parser Library is a specialized tool designed to interpret and extract structured information from citations of the Bible, specifically focusing on the four Gospels: Matthew, Mark, Luke, and John. This library is tailored to handle citations that refer to a single block of contiguous text, which may span across multiple chapters and verses. The citation format supported by this library is custom-made and does not conform to any existing standard citation formats.
 
-The library supports parsing citations in the following formats:
+## Supported Formats
 
-1. `<book> <chapter>:<verse>`
-2. `<book> <chapter>:<verse>-<verse>`
-3. `<book> <chapter>:<verse>-<chapter>:<verse>`
+The library supports three main formats for citations:
 
-## Installation
+1. **Single Verse**: Identifies a specific verse within a chapter of a book.
+   - Format: `book chapter:verse`
+   - Example: `matthew 05:07`
 
-To install the Bible Citation Parser library, you will need to have Python installed on your system. The library requires Python 3.9 or newer. You can install the library directly from the GitHub repository using pip. Open your terminal or command prompt and run the following command:
+2. **Spanning Multiple Verses**: Refers to a range of verses within the same chapter.
+   - Format: `book chapter:verse_start:verse_end`
+   - Example: `luke 15:01:10`
+
+3. **Spanning Multiple Chapters**: Covers a range that extends across chapters.
+   - Format: `book chapter_start:verse_start-chapter_end:verse_end`
+   - Example: `mark 02:05-03:12`
+
+### Requirements
+
+- Python version: 3.9 or above.
+- Installation: The library can be installed via pip directly from the GitHub repository.
+
+### Installation
+
+To install the library, use the following pip command:
 
 ```sh
 pip install git+https://github.com/natureframework/citation-parser.git
 ```
 
-This command tells pip to install the library directly from the specified GitHub URL.
+## How to Use
 
-## Basic Usage
+Below are examples demonstrating how to use the Bible Citation Parser Library to parse different types of citations.
 
-Once installed, you can start using the library to parse Bible citations.
-
-Here's a simple example of how to use the library:
+### Parsing a Simple Citation
 
 ```python
 from citationparser import parse
 
-# Parse a simple citation
-citation = parse("John 3:16")
-print(citation.book)  # Output: John
+citation = parse("john 03:16")
+print(citation.book)  # Output: john
 print(citation.start.chapter)  # Output: 3
 print(citation.start.verse)  # Output: 16
 print(citation.end.chapter)  # Output: 3
 print(citation.end.verse)  # Output: 16
+```
 
-# Parse a citation spanning multiple verses
-citation = parse("Genesis 1:1-2")
+### Parsing a Citation Spanning Multiple Verses
+
+```python
+from citationparser import parse
+
+citation = parse("mark 01:01-02")
 print(citation.start.chapter)  # Output: 1
 print(citation.start.verse)  # Output: 1
 print(citation.end.chapter)  # Output: 1
 print(citation.end.verse)  # Output: 2
+```
 
-# Parse a citation spanning multiple chapters and verses
-citation = parse("Matthew 28:19-29:20")
+### Parsing a Citation Spanning Multiple Chapters and Verses
+
+```python
+from citationparser import parse
+
+citation = parse("john 28:19-29:20")
 print(citation.start.chapter)  # Output: 28
 print(citation.start.verse)  # Output: 19
 print(citation.end.chapter)  # Output: 29
 print(citation.end.verse)  # Output: 20
 ```
+
+## Notes
+
+- The book names must be in all lowercase.
+- Chapter and verse numbers must be composed of two digits (e.g., `01`).
+- This library is specifically designed for parsing citations from the Gospels only.
