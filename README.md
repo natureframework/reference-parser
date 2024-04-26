@@ -77,3 +77,4 @@ print(citation.end.verse)  # Output: 20
 - The book names must be in all lowercase.
 - Chapter and verse numbers must be composed of two digits (e.g., `01`).
 - This library is specifically designed for parsing citations from the Gospels only.
+- The format is designed to be limited and strict to reduce human errors in typing the citations and to simplify the underlying code to minimize the occurrence of bugs.
