@@ -72,9 +72,14 @@ print(citation.end.chapter)  # Output: 29
 print(citation.end.verse)  # Output: 20
 ```
 
-## Notes
+## Design Constraints
 
-- The book names must be in all lowercase for simplicity and consistency.
-- Chapter and verse numbers must be composed of two digits (e.g., `01`) for proper sorting.
-- This library is specifically designed for parsing citations from the Gospels only to keep the parsing rules simple.
-- The format is designed to be limited and strict to reduce human errors in typing the citations and to simplify the underlying code to minimize the occurrence of bugs.
+The Design Constraints section outlines specific limitations and rules that govern how the Bible Citation Parser Library operates. These constraints are crucial for ensuring the library functions correctly and efficiently.
+
+1. **Book Names in Lowercase**: Requiring all book names to be in lowercase serves several purposes. Firstly, it eliminates ambiguity and the potential for errors related to case sensitivity. By standardizing the input format, the library simplifies the parsing process. This constraint ensures consistency across all inputs, making it easier for users to remember how to format their citations and for the library to process them.
+
+2. **Two-Digit Chapter and Verse Numbers**: Mandating that chapter and verse numbers be formatted with two digits (e.g., `01` instead of `1`) aims to facilitate proper sorting and uniformity. This formatting choice helps in distinguishing between single and multiple-digit numbers, ensuring that citations are parsed and sorted correctly, especially when dealing with ranges. It also contributes to the overall consistency of the citation format.
+
+3. **Focus on the Gospels Only**: Limiting the scope of the library to parsing citations from the Gospels (Matthew, Mark, Luke, and John) significantly simplifies the parsing rules. The Gospels have a relatively uniform structure compared to other parts of the Bible, which can vary widely in their formatting and numbering. By focusing on a specific subset of the Bible, the library can offer more accurate and efficient parsing capabilities without the need to account for the complexities and exceptions present in other books.
+
+4. **Strict and Limited Format**: Adopting a strict and limited format for citations reduces the likelihood of human error and simplifies the underlying code. By defining clear rules for how citations must be formatted, the library can more easily detect and parse the intended references. This constraint also helps in minimizing the occurrence of bugs by reducing the number of edge cases and variations the library needs to handle. A well-defined format ensures that users know exactly how to input their citations, leading to fewer errors and a smoother user experience.
