@@ -30,7 +30,7 @@ class Visitor(NodeVisitor):
     def visit_number(self, node, _):
         return int(node.text)
 
-    def visit_word(self, node, _):
+    def visit_book(self, node, _):
         return node.text
 
     def generic_visit(self, node, visited_children):

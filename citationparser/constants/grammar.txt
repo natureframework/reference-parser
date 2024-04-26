@@ -1,16 +1,9 @@
 citation = book " " span
+book = "matthew" / "mark" / "luke" / "john"
 span = (start "-" end) / start
 reference = chapter ":" verse
 end = reference / verse
+number = ~"[0-9][1-9]"
 start = reference
 chapter = number
 verse = number
-book = word
-
-
-number = digit+
-word = alpha+
-
-
-alpha = ~"[a-zA-Z]"
-digit = ~"[0-9]"

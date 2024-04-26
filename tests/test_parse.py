@@ -1,17 +1,19 @@
+from pytest import raises
+from parsimonious.exceptions import ParseError
 from citationparser import parse
 
 
 def test_simple():
-    citation = parse("Matthew 1:2")
-    assert citation.book == "Matthew"
+    citation = parse("matthew 01:02")
+    assert citation.book == "matthew"
     assert citation.start.chapter == 1
     assert citation.start.verse == 2
     assert citation.end == citation.start
 
 
 def test_span_verse():
-    citation = parse("Mark 1:2-3")
-    assert citation.book == "Mark"
+    citation = parse("mark 01:02-03")
+    assert citation.book == "mark"
     assert citation.start.chapter == 1
     assert citation.start.verse == 2
     assert citation.end.chapter == 1
@@ -19,9 +21,21 @@ def test_span_verse():
 
 
 def test_span_chapter():
-    citation = parse("Luke 1:2-3:4")
-    assert citation.book == "Luke"
+    citation = parse("luke 01:02-03:04")
+    assert citation.book == "luke"
     assert citation.start.chapter == 1
     assert citation.start.verse == 2
     assert citation.end.chapter == 3
     assert citation.end.verse == 4
+
+
+def test_books():
+    assert parse("matthew 01:01").book == "matthew"
+    assert parse("mark 01:01").book == "mark"
+    assert parse("luke 01:01").book == "luke"
+    assert parse("john 01:01").book == "john"
+
+
+def test_unknown_book():
+    with raises(ParseError):
+        parse("unknown 01:01")
