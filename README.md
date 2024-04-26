@@ -11,8 +11,8 @@ The library supports three main formats for citations:
    - Example: `matthew 05:07`
 
 2. **Spanning Multiple Verses**: Refers to a range of verses within the same chapter.
-   - Format: `book chapter:verse_start:verse_end`
-   - Example: `luke 15:01:10`
+   - Format: `book chapter:verse_start-verse_end`
+   - Example: `luke 15:01-10`
 
 3. **Spanning Multiple Chapters**: Covers a range that extends across chapters.
    - Format: `book chapter_start:verse_start-chapter_end:verse_end`
