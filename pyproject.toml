@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "citation-parser"
+name = "reference-parser"
 version = "0.1.0"
-description = "Bible citation parser"
+description = "Bible reference parser"
 authors = ["Ivan Dustin Bilon <ivan22.dust@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 packages = [
-    { include = "citationparser" },
+    { include = "referenceparser" },
 ]
 
 [tool.poetry.dependencies]

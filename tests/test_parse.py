@@ -1,6 +1,6 @@
 from pytest import raises
 from parsimonious.exceptions import ParseError
-from citationparser import parse
+from referenceparser import parse
 
 
 def test_simple():
