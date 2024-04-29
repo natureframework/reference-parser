@@ -1,8 +1,8 @@
 from pydantic.dataclasses import dataclass
-from .reference import Reference
+from .page import Page
 
 
 @dataclass
 class Span:
-    start: Reference
-    end: Reference
+    start: Page
+    end: Page

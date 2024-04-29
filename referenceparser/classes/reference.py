@@ -1,7 +1,7 @@
 from pydantic.dataclasses import dataclass
+from .span import Span
 
 
 @dataclass
-class Reference:
-    chapter: int
-    verse: int
+class Reference(Span):
+    book: str
