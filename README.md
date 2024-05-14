@@ -7,16 +7,16 @@ The Bible Reference Parser Library is a specialized tool designed to interpret a
 The library supports three main formats for references:
 
 1. **Single Verse**: Identifies a specific verse within a chapter of a book.
-   - Format: `book chapter:verse`
-   - Example: `matthew 5:7`
+   - Format: `book chapter verse`
+   - Example: `matthew 5 7`
 
 2. **Spanning Multiple Verses**: Refers to a range of verses within the same chapter.
-   - Format: `book chapter:verse_start-verse_end`
-   - Example: `luke 15:1-10`
+   - Format: `book chapter verse_start-verse_end`
+   - Example: `luke 15 1-10`
 
 3. **Spanning Multiple Chapters**: Covers a range that extends across chapters.
-   - Format: `book chapter_start:verse_start-chapter_end:verse_end`
-   - Example: `mark 2:5-3:12`
+   - Format: `book chapter_start verse_start-chapter_end verse_end`
+   - Example: `mark 2 5-3 12`
 
 ### Requirements
 
@@ -40,7 +40,7 @@ Below are examples demonstrating how to use the Bible Reference Parser Library t
 ```python
 from referenceparser import parse
 
-reference = parse("john 3:16")
+reference = parse("john 3 16")
 print(reference.book)  # Output: john
 print(reference.start.chapter)  # Output: 3
 print(reference.start.verse)  # Output: 16
@@ -53,7 +53,7 @@ print(reference.end.verse)  # Output: 16
 ```python
 from referenceparser import parse
 
-reference = parse("mark 1:1-2")
+reference = parse("mark 1 1-2")
 print(reference.start.chapter)  # Output: 1
 print(reference.start.verse)  # Output: 1
 print(reference.end.chapter)  # Output: 1
@@ -65,7 +65,7 @@ print(reference.end.verse)  # Output: 2
 ```python
 from referenceparser import parse
 
-reference = parse("john 28:19-29:20")
+reference = parse("john 28 19-29 20")
 print(reference.start.chapter)  # Output: 28
 print(reference.start.verse)  # Output: 19
 print(reference.end.chapter)  # Output: 29
