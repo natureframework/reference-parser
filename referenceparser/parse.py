@@ -3,8 +3,8 @@ from .regex.matcher import matcher
 from .classes.page import Page
 
 
-def parse(pattern: str) -> Reference:
-    match = matcher.match(pattern)
+def parse(reference: str) -> Reference:
+    match = matcher.match(reference)
     if match:
         groups = match.groupdict()
         return Reference(
@@ -22,4 +22,4 @@ def parse(pattern: str) -> Reference:
                 ),
             ),
         )
-    raise ValueError(f"Invalid pattern: {pattern}")
+    raise ValueError(f"Invalid reference format: {reference}")
