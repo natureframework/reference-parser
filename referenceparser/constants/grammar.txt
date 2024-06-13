@@ -1,9 +1,0 @@
-citation = book " " span
-book = "matthew" / "mark" / "luke" / "john"
-number = ~"[1-9][0-9]" / ~"[1-9]"
-span = (start "-" end) / start
-reference = chapter " " verse
-end = reference / verse
-start = reference
-chapter = number
-verse = number
