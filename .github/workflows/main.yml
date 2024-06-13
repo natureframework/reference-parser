@@ -5,12 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - run: pipx install poetry black flake8 pylint
+    - run: pipx install poetry
     - uses: actions/setup-python@v4
       with:
         python-version: '3.9'
         cache: 'poetry'
     - run: poetry install
-    - run: black --check .
+    - run: poetry run black --check .
     - run: poetry run flake8 .
     - run: poetry run pylint --jobs 0 $(find . -name '*.py')
