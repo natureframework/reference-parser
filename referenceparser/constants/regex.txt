@@ -1,1 +1,1 @@
-^(?P<book>.+) (?P<chapter_start>\d+) ((?P<chapter_start_verse_start>\d+)(-((?P<chapter_start_verse_end>\d+)|(?P<chapter_end>\d+) (?P<chapter_end_verse_end>\d+)))?)$
+^(?P<book>\w+( \w+)*) (?P<chapter_start>\d+) ((?P<chapter_start_verse_start>\d+)(-((?P<chapter_start_verse_end>\d+)|(?P<chapter_end>\d+) (?P<chapter_end_verse_end>\d+)))?)$
