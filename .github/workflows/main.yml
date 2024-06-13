@@ -14,3 +14,4 @@ jobs:
     - run: poetry run black --check .
     - run: poetry run flake8 .
     - run: poetry run pylint --jobs 0 $(find . -name '*.py')
+    - run: poetry run pytest
