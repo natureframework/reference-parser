@@ -55,3 +55,7 @@ def test_multiple_words():
 def test_invalid_pattern():
     with raises(ValueError):
         parse("a b c")
+
+
+def test_hash():
+    assert hash(parse("matthew 1 1"))
